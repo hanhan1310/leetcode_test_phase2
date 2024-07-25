@@ -142,11 +142,12 @@ int outputTime(int timeStart, int timeUntillBegin) {
 int totalBoats(List<int> people, int limit) {
   int boats = 0;
   List<int> checkWeigth = List<int>.from(people);
+  checkWeigth.removeAt(0);
 
   for (int i = 0; i < people.length; i++) {
     int checkBoats = 0;
     if (people[i] <= limit) {
-      for (int j = 1; j < checkWeigth.length; j++) {
+      for (int j = 0; j < checkWeigth.length; j++) {
         if (people[i] + checkWeigth[j] <= limit) {
           if (people[i] + checkWeigth[j] > checkBoats) {
             checkBoats = people[i] + checkWeigth[j];
